@@ -14,24 +14,24 @@ class ListContacts extends Component {
 
     updateQuery = (query) => {
         this.setState(() => ({
-            query: query.trim
+            query: query.trim()
         }))
     }
     render() {
         const { query } = this.state
         const { contacts, onDeleteContact } = this.props
-
+        
         const showingContacts = query === ''
             ? contacts
-            : contacts.fiter((c) => (
-                c.name.toLoweCase().includes(query.toLowerCase())
-            ) )
+            : contacts.filter((c) => (
+                c.name.toLowerCase().includes(query.toLowerCase())
+            ))
 
         return (
             <div className="list-contacts">
                 <div className="list-contacts-top">
                     <input
-                        className="searc-contacts"
+                        className="search-contacts"
                         type="text"
                         placeholder="Search Contacts"
                         value={query}
