@@ -4,6 +4,7 @@ import ImageInput from './ImageInput'
 import serializeForm from 'form-serialize'
 
 class CreateContact extends Component {
+    // Serialize the data and pass is to the parent component:
     handleSubmit = (e) => {
         e.preventDefault()
         const values = serializeForm(e.target, { hash: true })
